@@ -1,27 +1,30 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2024년 신년계획 버킷리스트</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>2024 신년계획 버킷리스트</title>
     <style>
-      /*구글 폰트 사용하기*/
-      @import url("https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap");
-
-      * {
-        font-family: "Hahmlet", serif;
-      }
-
       .bg {
-        width: 360px;
         background-image: url("./images/bg.png");
         background-size: cover;
-        /**화면에 맞게끔 조정**/
-        background-position: center;
+        /*화면에 맞게 조정*/
         background-repeat: no-repeat;
-        /**bg image 반복 방지**/
+        /*background image가 반복되는 거 방지*/
         margin: 0 auto;
+        background-color: #141617;
+      }
+
+      .title {
+        margin-top: 50px;
+        color: #e8344e;
+      }
+
+      .msg {
+        color: white;
+        margin-bottom: 48px;
       }
 
       .bucket {
@@ -33,31 +36,34 @@
 
       .img1 {
         background-image: url("./images/Bucket01.png");
+        color: white;
       }
 
       .img2 {
+        background-image: url("./images/Bucket03.png");
+        color: #e8344e;
+      }
+
+      .img3 {
+        background-image: url("./images/Bucket03.png");
+        color: #e8344e;
+      }
+
+      .img4 {
         background-image: url("./images/Bucket01.png");
-      }
-
-      .title {
-        background-color: tomato;
-        border-radius: 10px;
-        padding: 4px 14px;
         color: white;
       }
 
-      .msg {
+      .img5 {
+        background-image: url("./images/Bucket01.png");
         color: white;
-        margin: -5px 0 15px;
-        font-style: italic;
-        font-weight: bold;
+      }
+
+      .img6 {
+        background-image: url("./images/Bucket03.png");
+        color: #e8344e;
       }
     </style>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/bucketList/sparta-bucketlist.css"
-    />
   </head>
 
   <body class="bg center">
@@ -66,43 +72,15 @@
     <div class="flex-row wrap">
       <div class="bucket img1 center">연예하기</div>
       <div class="bucket img2 center">바디프로필 찍기</div>
-      <div class="bucket img2 center">1억 저축하기</div>
-      <div class="bucket img1 center">풀스택 개발자 되기</div>
-      <div class="bucket img1 center">반드시 20킬로그램 감량!</div>
-      <div class="bucket img2 center">소기업으로 회사 키우기</div>
+      <div class="bucket img3 center">1억 저축하기</div>
+      <div class="bucket img4 center">풀스택 개발자 되기</div>
+      <div class="bucket img5 center">반드시 20킬로그램 감량!</div>
+      <div class="bucket img6 center">소기업으로 회사 키우기</div>
     </div>
     <!--  flex-row, flex-wrap 
 flex-row: bucket을 한 줄로 쭉 나올 수 있게 하는 명령어 
 flex-row wrap : bucket list를 우리가 원하는 크기에 맞춰 감싸주는 명령어 
 -->
-    <script>
-      // 페이지 로드 시 이전 상태 복원
-      document.addEventListener("DOMContentLoaded", (event) => {
-        const buckets = document.querySelectorAll(".bucket");
-        buckets.forEach((bucket, index) => {
-          // 로컬 스토리지에서 상태 읽기
-          const isDone = localStorage.getItem("bucket" + index) === "done";
-          if (isDone) {
-            bucket.classList.add("done");
-          }
-        });
-      });
-
-      // 버킷 리스트 클릭 이벤트
-      const buckets = document.querySelectorAll(".bucket");
-      buckets.forEach((bucket, index) => {
-        bucket.addEventListener("click", function () {
-          // 클래스 토글
-          bucket.classList.toggle("done");
-
-          // 로컬 스토리지에 상태 저장
-          if (bucket.classList.contains("done")) {
-            localStorage.setItem("bucket" + index, "done");
-          } else {
-            localStorage.setItem("bucket" + index, "");
-          }
-        });
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
